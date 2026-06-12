@@ -115,12 +115,14 @@ export default function Hero() {
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
               
-              <Link
-                href="/recruiter"
+              <a
+                href="/resume.pdf"
+                download="Mustajaab_Qadri_Resume.pdf"
                 className="px-6 py-3.5 bg-bg-tertiary hover:bg-bg-secondary text-text-primary border border-border-color hover:border-accent-teal rounded-xl font-semibold transition-all flex items-center justify-center gap-2"
               >
-                Recruiter Quick Review
-              </Link>
+                <Download className="w-4 h-4 text-accent-teal" />
+                Download Resume
+              </a>
 
               <button
                 onClick={() => handleScrollTo('contact')}

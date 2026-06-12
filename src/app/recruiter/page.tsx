@@ -1,60 +1,10 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Mail, FileDown, Printer, Check, Briefcase, Award, ShieldAlert, Cpu } from 'lucide-react';
+import { ArrowLeft, Mail, FileDown, Printer, Briefcase, Award, ShieldAlert, Cpu } from 'lucide-react';
 
 export default function RecruiterPortal() {
-  const [downloaded, setDownloaded] = useState(false);
-
-  const triggerPrint = () => {
-    window.print();
-  };
-
-  const handleDownloadTextResume = () => {
-    // Generate a beautiful plain text resume file dynamically
-    const resumeText = `MUSTAJAAB QADRI
-AI Engineer | GenAI Developer | Software Engineering Student
-Location: Multan, Pakistan | Email: mustajaabx@gmail.com
-LinkedIn: https://www.linkedin.com/in/mustajaab/ | GitHub: https://github.com/mustajaab1
-
-SUMMARY:
-Passionate AI Engineer specializing in Generative AI, LLMs, RAG Systems, AI Agents, LangChain, LangGraph, NLP, and Full Stack Development. Experienced leader driving technical operations and student learning programs at GIKI.
-
-EDUCATION:
-BS Software Engineering - Ghulam Ishaq Khan Institute (GIKI) (2023 - 2027)
-
-TECHNICAL SKILLS:
-- Generative AI: LangChain, LangGraph, LlamaIndex, RAG Systems, Prompt Engineering, Agentic AI, LLMOps
-- Machine Learning: PyTorch, TensorFlow, Keras, Scikit-learn
-- Data Science: Pandas, NumPy, EDA, Feature Engineering
-- Databases: PostgreSQL, Pinecone, ChromaDB, FAISS
-- Web Development: React, Next.js, Node.js, TypeScript, Tailwind CSS
-- Developer Tools: Git, GitHub, OpenCV, Streamlit
-
-PROJECT HIGHLIGHTS:
-1. AI PDF Chatbot (RAG app utilizing LangChain + FAISS + OpenAI + Streamlit)
-2. MindMate (AI mental health platform with OpenCV face expressions tracker)
-3. AI Resume Analyzer (NLP semantic job-matching parser using Transformers)
-4. LooksMaximizer (Facial landmark symmetry proportions using OpenCV)
-5. Gikify (Campus transactional peer marketplace with React + Express + PG)
-
-LEADERSHIP EXPERIENCES:
-- Microsoft Learn Student Club GIKI: Learning & Development Head | Tech Head
-- SOPHEP GIKI: Tech Head | Registration System Architect (1,000+ users)
-`;
-    const blob = new Blob([resumeText], { type: 'text/plain;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'Mustajaab_Qadri_Resume.txt';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-    setDownloaded(true);
-    setTimeout(() => setDownloaded(false), 3000);
-  };
-
   return (
     <div className="min-h-screen bg-bg-primary text-text-primary py-12 px-4 sm:px-6 lg:px-8">
       {/* Print-specific stylesheet wrapper */}
@@ -102,29 +52,22 @@ LEADERSHIP EXPERIENCES:
           </Link>
 
           <div className="flex gap-2">
-            <button
-              onClick={triggerPrint}
+            <a
+              href="/resume.pdf"
+              download="Mustajaab_Qadri_Resume.pdf"
               className="px-4 py-2 border border-border-color hover:border-accent-teal hover:text-accent-teal text-text-secondary rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer bg-bg-tertiary shadow-sm"
             >
               <Printer className="w-4 h-4" />
               Print CV
-            </button>
-            <button
-              onClick={handleDownloadTextResume}
+            </a>
+            <a
+              href="/resume.pdf"
+              download="Mustajaab_Qadri_Resume.pdf"
               className="px-4 py-2 bg-accent-teal hover:bg-accent-teal/80 text-white rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-md shadow-accent-teal/10"
             >
-              {downloaded ? (
-                <>
-                  <Check className="w-4 h-4" />
-                  Downloaded
-                </>
-              ) : (
-                <>
-                  <FileDown className="w-4 h-4" />
-                  Download Resume
-                </>
-              )}
-            </button>
+              <FileDown className="w-4 h-4" />
+              Download Resume
+            </a>
           </div>
         </div>
 
