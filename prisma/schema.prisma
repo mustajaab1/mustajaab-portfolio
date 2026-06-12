@@ -1,0 +1,71 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Contact {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  subject   String
+  message   String
+  createdAt DateTime @default(now()) @map("createdat")
+
+  @@map("contacts")
+}
+
+model NewsletterSubscriber {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  createdAt DateTime @default(now()) @map("createdat")
+
+  @@map("newsletter_subscribers")
+}
+
+model ProjectView {
+  id          String   @id @default(uuid())
+  projectName String   @map("projectname")
+  visitorIP   String   @map("visitorip")
+  visitedAt   DateTime @default(now()) @map("visitedat")
+
+  @@map("project_views")
+}
+
+model VisitorAnalytics {
+  id        String   @id @default(uuid())
+  country   String?
+  city      String?
+  device    String?
+  browser   String?
+  visitedAt DateTime @default(now()) @map("visitedat")
+
+  @@map("visitor_analytics")
+}
+
+model BuildingInPublicUpdate {
+  id         String   @id @default(uuid())
+  focus      String
+  streak     Int
+  experiment String
+  win        String
+  lesson     String
+  createdAt  DateTime @default(now()) @map("createdat")
+
+  @@map("building_in_public_updates")
+}
+
+model LinkedInPost {
+  id          String   @id @default(uuid())
+  title       String
+  category    String
+  thumbnail   String?
+  postUrl     String   @map("posturl")
+  publishedAt DateTime @default(now()) @map("publishedat")
+  createdAt   DateTime @default(now()) @map("createdat")
+
+  @@map("linkedin_posts")
+}
