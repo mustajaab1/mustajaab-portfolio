@@ -210,12 +210,12 @@ export default function Hero() {
               </div>
 
               {/* Floating micro badges (interactive AI indicators) */}
-              <span className="absolute -top-3 -right-3 px-3 py-1.5 rounded-xl bg-bg-tertiary border border-border-color shadow-lg text-[10px] font-bold text-accent-teal flex items-center gap-1 animate-bounce duration-1000">
+              {/* <span className="absolute -top-3 -right-3 px-3 py-1.5 rounded-xl bg-bg-tertiary border border-border-color shadow-lg text-[10px] font-bold text-accent-teal flex items-center gap-1 animate-bounce duration-1000">
                 🚀 AI Builder
               </span>
               <span className="absolute -bottom-3 -left-3 px-3 py-1.5 rounded-xl bg-bg-tertiary border border-border-color shadow-lg text-[10px] font-bold text-accent-cyan flex items-center gap-1">
                 💻 Software Eng.
-              </span>
+              </span> */}
             </div>
           </motion.div>
 
